@@ -10,7 +10,7 @@ let label = "waiting...";
 
 // Classifier and model url
 let classifier;
-let modelURL = 'https://ahabbsciencestudiopak.github.io/Who-is-Reciting/"
+let modelURL = 'https://ahabbsciencestudiopak.github.io/Who-is-Reciting/'
 
 // STEP 1: Load the model!
 function preload() {
