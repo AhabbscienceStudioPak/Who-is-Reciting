@@ -17,8 +17,10 @@ function preload() {
   classifier = ml5.soundClassifier(modelURL + 'model.json');
 }
 
+
 function setup() {
   createCanvas(screen.width/2.2,screen.height/6);
+  noLoop();
 
   // STEP 2: Start classifying (will listen to mic by default)
   classifyAudio();
@@ -31,34 +33,46 @@ function classifyAudio() {
 
 function draw() {
   background(0);
-
+  let instance = 0;
   // STEP 4: Draw the label
   // textSize(32);
   textAlign(CENTER, CENTER);
   fill(255);
   // text(label, width/2, height - 16);
+  //let instance = 0;
+  //n = 0  
 
   // Background noise is headphones
-  let emoji = "Nothing detected";
+  let text1 = "Nothing detected";
   // Pick an emoji based on label
   if (label == "Basit") {
-    emoji = "Sheikh Abdul Basit Abdul Samad";
+    text1 = "Sheikh Abdul Basit Abdul Samad";
   } else if (label == "Mishari") {
-    emoji = "Mishary bin Rashid Alafasy";
+    text1 = "Mishary bin Rashid Alafasy";
   } else if (label == "OmerAmin") {
-    emoji = "Omer Amin";
+    text1 = "Omer Amin";
   } else if (label == "JunaidJamshed") {
-    emoji = "Junaid Jamshed";
+    text1 = "Junaid Jamshed";
   } else if (label == "AbuBakr") {
-    emoji = "Abu Bakr al-Shatri";
+    text1 = "Abu Bakr al-Shatri";
   } else if (label == "AbdurRehman") {
-    emoji = "Abdur-Rahman as-Sudais";
+    text1 = "Abdur-Rahman as-Sudais";
   }
-
-
+   
+ 
   // Draw the emoji
   textSize(32);
-  text(emoji, width / 2, height / 2);
+  text(text1, width / 2, height / 2);
+  //text(instance, width / 1.5, height / 1.5);
+  //console.log(instance);
+}
+
+function mousePressed() {
+  loop();
+}
+
+function mouseReleased() {
+  noLoop();
 }
 
 // STEP 3: Get the classification!
